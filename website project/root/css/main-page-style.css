@@ -1,0 +1,267 @@
+body {
+  background-color: #efefef;
+}
+/* navigation bar styling */
+.navbar {
+  justify-content: space-evenly;
+  background-color: #efefef;
+}
+.logo {
+  background-size: contain;
+  width: 200px;
+  padding-left: 20px;
+}
+.navitem {
+  font-size: 15px;
+  padding: 35px 35px 35px 35px;
+  border-radius: 25px;
+
+}
+.navitem:hover{
+  background-color: #962F34;
+  color: white;
+}
+
+
+/* center styling */
+.center {
+  padding-top: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.col1 {
+  flex-basis: auto;
+  width: 65%;
+
+}
+.col2 {
+  width: 35%;
+}
+.header1 {
+  font-size: 15px;
+  text-align: right;
+  border-bottom: 2px solid black;
+}
+.header2 {
+  font-size: 15px;
+  text-align: right;
+  border-bottom: 2px solid black;
+}
+.header3 {
+  font-size: 15px;
+  text-align: right;
+  border-bottom: 2px solid black;
+  margin-top: 20px;
+
+}
+.updates {
+  background: #ffffff;
+  border-radius: 50px;
+  height: 100%;
+
+}
+
+/* image styling */
+.cover1 {
+  background-image: cover;
+  width: 100%;
+}
+
+.photo-text{
+  position: relative;
+  border-radius: 50px;
+  height: 400px;
+  background-image: url("/root/_images/cover_photos/Rectangle 38.png");
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+
+
+/* date box */
+.info-date{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  
+  text-align: center;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 25px;
+  line-height: 47px;
+  background-color:#962F34;
+  color: white;
+  width:190px;
+  margin-bottom: 0;
+  padding: 2%;
+  border-radius: 50px;
+  
+  
+
+
+}
+.announcement-text-header{
+  margin-left: 10px;
+}
+.announcement-text{
+  margin-left: 10px;
+  text-align: justify;
+  text-size-adjust: 100%;
+}
+.read-more-button{
+
+  margin-left: 10px;
+  
+  
+  color: #962F34;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 47px;
+  text-decoration: none;
+}
+.read-more-arrow{
+  
+  margin-left: 3px;
+  margin-bottom: 8px;
+  width: 2%;
+
+}
+
+.callendar-div{
+  background: #ffffff;
+  border-radius: 50px;
+  height: 50%;
+}
+
+/* callendar */
+
+
+.month{
+  background-color: #962F34;
+  color: white;
+  text-align: center;
+  
+  border-radius: 50px;
+}
+
+.weekdays{
+  
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* order-bottom: 2px solid black; */
+}
+
+.days{
+  margin-left: 15px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  
+}
+.days div{
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  width: calc(96%/7);
+  height: 30px;
+  transition: background-color 0.2s;
+}
+.messages{
+  background-color: white;
+  height: 43.4%;
+  border-radius: 50px;
+}
+.mess-header{  
+  padding-top: 20px;
+  text-align: center;
+}
+.mess-par{
+  text-align: center;
+  justify-content: center;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+.read-more-arrow2{
+  width: 4%;
+  margin-left: 5px;
+  margin-bottom: 8px;
+
+}
+.read-more-button2{
+
+  margin-left: 30px;
+  
+  
+  color: #962F34;
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 47px;
+  text-decoration: none;
+ 
+}
+
+
+.header4
+{
+margin-top: 50px;
+font-size: 15px;
+text-align: left;
+border-bottom: 2px solid black;
+}
+
+.subjects{
+  margin-top: 20px;
+  width: 100%;
+ 
+}
+.subjecti
+{
+  
+  text-decoration: none;
+  color: black;
+  border-bottom: 2px solid black;
+  margin-left: 10px;
+  width: 100%;
+  padding-inline-end: 80%;
+  font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 47px;
+
+
+}
+
+.info-student{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
+height: 100px;
+border-radius: 50px;
+  background-color: white;
+}
+
+.student-name{
+  font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 25px;
+line-height: 47px;
+text-align: center;
+}
+.school-name{
+  font-family: 'DM Sans';
+font-style: normal;
+font-weight: 400;
+font-size: 15px;
+line-height: 47px;
+text-align: center;
+
+}
