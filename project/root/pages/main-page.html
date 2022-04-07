@@ -15,7 +15,7 @@
     <title>Main page</title>
   </head>
   <body>
-    <div class="navigation">
+    <div class="navigation" id="navigation">
       <button class="menu-toggle" onclick="openNav()">
         <img class="toggle-icon" src="../_images/logo/menu.png" alt="" />
       </button>
@@ -35,7 +35,6 @@
       </nav>
     </div>
 
-
     <div class="center">
       <div class="col1 p-2">
         <h3 class="header1">Ανακοινώσεις</h3>
@@ -50,7 +49,7 @@
               <script type="text/javascript">
                 var d = new Date();
                 document.write(d.getDate() + ".");
-                document.write(d.getMonth() + ".");
+                document.write(d.getMonth() + 1 + ".");
                 document.write(d.getFullYear());
               </script>
             </p>
@@ -144,6 +143,7 @@
               <div class="nextdate">3</div>
               <div class="nextdate">4</div>
               <div class="nextdate">5</div>
+              <div class="nextdate">6</div>
             </div>
           </div>
         </div>
@@ -190,21 +190,6 @@
       crossorigin="anonymous"
     ></script>
 
-    <script>
-      var open = 0;
-      function openNav() {
-        document.getElementById("navbar").style.width = "200px";
-        open = open + 1;
-        if (open > 1) {
-          closeNav();
-        }
-      }
-
-      /* Set the width of the side navigation to 0 */
-      function closeNav() {
-        document.getElementById("navbar").style.width = "0";
-        open = 0;
-      }
-    </script>
+    <script src="../scripts/toggle-menu.js"></script>
   </body>
 </html>

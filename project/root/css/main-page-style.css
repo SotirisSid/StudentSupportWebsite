@@ -5,6 +5,8 @@ body {
 .navbar {
   justify-content: space-evenly;
   background-color: #efefef;
+
+  
 }
 
 .navbar .navitem:hover {
@@ -31,6 +33,26 @@ body {
 .toggle-icon{
   width: 20px;
 }
+/* 
+ @media screen and (min-width: 900px) { 
+  .navbar{
+    position: fixed;
+    display: flex !important;
+    top: 0;
+    justify-content: space-evenly;
+    z-index: 100;
+    width: 100%;
+  }
+
+}    */
+
+@media screen and (min-width: 900px) {
+  .navbar{
+    display: flex;
+    
+  }
+  
+}
 
 
 @media screen and (max-width: 900px) {
@@ -41,20 +63,22 @@ body {
     padding-bottom: 4px;
     box-shadow:1px 1.5px 1.5px black;
     z-index: 12;
-    display: block;
+    display: flex;
     margin: 5px;
   }
   .navbar {
-
+   
     box-shadow:2px 3px 3px black;
     z-index: 10;
     margin: 0;
   padding: 0;
-  width: 0px;
+  display: none;
   background-color: #f1f1f1;
   position: fixed;
   height: 100%;
   overflow: auto;
+  width: 220px;
+  
   }
   .logo {
     background-size: contain;
