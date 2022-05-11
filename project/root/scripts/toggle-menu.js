@@ -24,7 +24,7 @@ window.addEventListener('resize', function(event) {
   const mediaQuery = window.matchMedia('(min-width: 900px)')
 
 if (mediaQuery.matches) {
-
+  open=0;
  document.getElementById("navbar").style.display = "flex";
  
 } 
@@ -36,7 +36,7 @@ window.addEventListener('resize', function(event) {
   const mediaQuery = window.matchMedia('(max-width: 900px)')
 
 if (mediaQuery.matches) {
-
+  open=0;
  document.getElementById("navbar").style.display = "none";
  
 } 
