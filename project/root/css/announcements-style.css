@@ -1,0 +1,319 @@
+body {
+    background-color: #efefef;
+  }
+  
+  /* navigation bar styling */
+  .navbar {
+    justify-content: space-evenly;
+    background-color: #efefef;
+  
+    
+  }
+  
+  .navbar .navitem:hover {
+    background-color: #962F34;
+    color:white;
+  }
+  
+  .logo {
+    background-size: contain;
+    width: 200px;
+    padding-left: 20px;
+  }
+  
+  .navitem {
+    font-size: 15px;
+    padding: 35px 35px 35px 35px;
+    border-radius: 25px;
+  
+  }
+  
+  .menu-toggle{
+    display: none;
+  }
+  .toggle-icon{
+    width: 20px;
+  }
+  /* 
+   @media screen and (min-width: 900px) { 
+    .navbar{
+      position: fixed;
+      display: flex !important;
+      top: 0;
+      justify-content: space-evenly;
+      z-index: 100;
+      width: 100%;
+    }
+  
+  }    */
+  
+  @media screen and (min-width: 900px) {
+    .navbar{
+      display: flex;
+      
+    }
+    
+  }
+  
+  
+  @media screen and (max-width: 900px) {
+    .menu-toggle{
+      position: fixed;
+      border: none;
+      border-radius: 25px;
+      padding-bottom: 4px;
+      box-shadow:1px 1.5px 1.5px black;
+      z-index: 12;
+      display: flex;
+      margin: 5px;
+    }
+    .navbar {
+     
+      box-shadow:2px 3px 3px black;
+      z-index: 10;
+      margin: 0;
+    padding: 0;
+    display: none;
+    background-color: #f1f1f1;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    width: 220px;
+    
+    }
+    .logo {
+      background-size: contain;
+      width: 180px;
+      padding-left: 20px;
+    }
+  }
+
+  /* center styling */
+.center {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    max-width: 1600px;
+    margin: auto;
+  }
+  .col1 {
+    flex-basis: auto;
+    width: 65%;
+    height: 900px;
+  
+  }
+  .col2 {
+    width: 35%;
+    height: 900px;
+  }
+  .header1 {
+    font-size: 15px;
+    text-align: right;
+    border-bottom: 2px solid black;
+  }
+  .header2 {
+    font-size: 15px;
+    text-align: right;
+    border-bottom: 2px solid black;
+  }
+  .header3 {
+    font-size: 15px;
+    text-align: right;
+    border-bottom: 2px solid black;
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .updates {
+    background: #ffffff;
+    border-radius: 50px;
+    height: 100%;
+    min-height: 750px;
+  
+  }
+  
+  @media screen and (max-width: 900px) {
+    .center {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .col1 {
+      flex-basis: auto;
+      width: 100%;
+      height: 900px;
+    
+    }
+    .col2 {
+      width: 100%;
+      height: 900px;
+      margin-top: 30px;
+    }
+  }
+  
+  /* image styling */
+.cover1 {
+    background-image: cover;
+    width: 100%;
+  }
+  
+  .photo-text{
+    position: relative;
+    border-radius: 50px;
+    height: 400px;
+    background-image: url("../_images/cover_photos/Rectangle 38.png");
+    background-repeat:no-repeat;
+    background-size: cover;
+  }
+
+  /* date box */
+.info-date{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    
+    text-align: center;
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 47px;
+    background-color:#962F34;
+    color: white;
+    width:190px;
+    margin-bottom: 0;
+    padding: 2%;
+    border-radius: 50px;
+}  
+
+  .announcement-text-header{
+    margin-left: 10px;
+  }
+  .announcement-text{
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: 350px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: justify;
+    text-size-adjust: 100%;
+    padding-right: 10px;
+  }
+
+
+  .messages{
+    background-color:white;
+    height: 100%;
+    border-radius: 50px;
+    padding-top: 30px;
+    padding-right: 10px;
+    
+  }
+  .mess-header{  
+    padding-top: 20px;
+    text-align: center;
+  }
+  .mess-par{
+    text-align: justify;
+    justify-content: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    overflow: hidden;
+    height: 70px;
+  }
+
+  div.messages li {
+    list-style:none;
+    background-image:none;
+    background-repeat:none;
+    background-position:0; 
+}
+ul
+{
+    list-style-type:none;
+    padding:0px;
+    margin:0px;
+    height: 820px;
+    margin-bottom: 30px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+
+  /* Scrollbar styles */
+    .announcement-text::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    }
+    
+    .announcement-text::-webkit-scrollbar-track {
+    border: 1px solid #962F34;
+    border-radius: 10px;
+    }
+    
+    .announcement-text::-webkit-scrollbar-thumb {
+    background:#962F34; 
+    border-radius: 10px;
+    }
+    
+    .announcement-text::-webkit-scrollbar-thumb:hover {
+    background:#962F34;
+    }
+
+    ul::-webkit-scrollbar {
+        width: 12px;
+        height: 12px;
+    }
+        
+    ul::-webkit-scrollbar-track {
+        border: 1px solid #962F34;
+        border-radius: 10px;
+    }
+        
+    ul::-webkit-scrollbar-thumb {
+        background:#962F34; 
+        border-radius: 10px;
+    }
+        
+    ul::-webkit-scrollbar-thumb:hover {
+        background:#962F34;
+    }
+
+  
+
+  /* student styling*/
+
+  .info-student{
+    
+    margin-bottom: 30px;
+    margin-left: 100px;
+    margin-right: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: white;
+    margin: auto;
+    margin-top: 50px;
+    width: 80%;
+    max-width: 800px;
+  }
+  
+  .student-name{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 25px;
+    line-height: 47px;
+    text-align: center;
+  }
+  .school-name{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 47px;
+    text-align: center;
+  
+  }
