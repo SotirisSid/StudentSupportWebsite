@@ -1,0 +1,147 @@
+
+html, body {
+    min-height: 100%;
+}
+body{
+    margin-top: 20px;
+    font-family: 'DM Sans';
+    font-style: normal;
+}
+
+
+.mainbox{
+    display: flex;
+    flex:1 1 50%;
+    min-width: 0;
+
+    flex-wrap: wrap;
+    gap:3%;
+    justify-content: center;
+}
+
+
+
+.form{
+    display:inline-block;
+    min-width: 0;
+    box-sizing:border-box;
+    justify-content: center;
+    text-align: left;
+    height: 90vh;
+    width: 30%;
+
+
+}
+.logo{
+    height: 80px;
+}
+
+
+
+.login_header{
+    margin-top: 50px;
+    text-align: justify;
+    font-size: 25px;
+
+}
+
+.login_button{
+    color: white;
+    background-color: #962F34;
+    border-radius: 50px;
+width: 70%;
+  font-size: 20px;
+  height: 50px;
+  margin-top: 20px;
+}
+
+#user {
+    background-image: url(../_images/logo/login-icon.png);
+    background-repeat: no-repeat;
+    background-size:35px;
+    background-position: 5px;
+    font-size: 16px;
+
+    
+}
+#email{
+    background-image: url(../_images/logo/mail.png);
+    background-repeat: no-repeat;
+    background-size:25px;
+    background-position: 8px;
+    font-size: 16px;
+
+
+
+}
+input:not(:placeholder-shown) {
+    background-image: none !important;
+  }
+
+input[type='text']::placeholder
+{   
+padding-left: 35px;}
+input[type='password']::placeholder
+{   
+    padding-left: 35px;
+}
+#pass{
+    background-image: url(../_images/logo/pass-icon.png);
+    background-repeat: no-repeat;
+    background-size:25px;
+    background-position: 10px;
+    font-size: 16px;
+
+}    
+.sign-up a{
+    text-decoration: none;
+    color: black;
+}
+.sign-up{
+    text-align: left;
+}
+
+
+.input_forms{
+    border-radius: 50px;
+    height: 30px;
+    width: 70%;
+
+    margin-bottom: 3px;
+}
+h3{
+    font-size: 16px;
+    margin-bottom: -1px;
+}
+.forgot a{
+    text-decoration: none;
+     color:black;
+}
+.forgot {
+    display: inline;
+    margin-left: 50px;
+    justify-content: right;
+    color: black;
+  }
+  
+
+.last-line{
+    width: 70%;
+    display: inline block;
+}
+
+.imges{  
+
+    width:30%;
+    height: 90vh;
+    
+    background-color: #962F34;
+
+}
+
+
+.login_background{
+    width: 100%;
+    height: 100%;
+   
+}
