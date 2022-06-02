@@ -8,8 +8,8 @@ CREATE TABLE IF NOT EXISTS "USER" (
     "username" varchar(255) NOT NULL,
     "fName" varchar(255),
     "lName" varchar(255),
-    "password" varchar(255),
-    "salt" integer NOT NULL,
+    "hashed_password" BLOB,
+    "salt" BLOB ,
     PRIMARY KEY("id"),
     UNIQUE("username")
 );
@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS "EDITS_A" (
 
 -----------------------------------------------------------------------
 
-INSERT INTO "USER" ("id", "username", "fName", "lName", "password","salt") VALUES
+INSERT INTO "USER" ("id", "username", "fName", "lName", "hashed_password","salt") VALUES
     (0, "thegreatestadmin", "Sinus", "Lebastian", "yJ3GHhWNxuBS2CV3",10), --ADMIN
     (1, "prafar", "Pranav", "Farley", "mAKfWFCY8x2U2Gte",10), --PROF
     (2, "anmac", "Anisha", "Macdonald", "YwfqsH7c9k4DXjCB",10), --STUD
