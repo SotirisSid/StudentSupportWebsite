@@ -24,7 +24,6 @@ app.set('view engine', 'html');   */
 //pass: yJ3GHhWNxuBS2CV3
 
 
-
  
 app.use(session({
   secret: 'keyboard cat',
@@ -51,13 +50,13 @@ app.use(cookieParser());
 
 //app.use(csrf());
 app.use(passport.authenticate('session'));
-/* app.use(function(req, res, next) {
+app.use(function(req, res, next) {
   var msgs = req.session.messages || [];
   res.locals.messages = msgs;
   res.locals.hasMessages = !! msgs.length;
   req.session.messages = [];
   next();
-}); */
+}); 
 /* app.use(function(req, res, next) {
   res.locals.csrfToken = req.csrfToken();
   next();
