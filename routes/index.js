@@ -11,4 +11,13 @@ router.get('/', ensureLoggedIn,(req,res)=>{
 
 });
 
+router.get('/announcements', ensureLoggedIn, (req,res)=>{
+    res.render("announcements.ejs");
+});
+
+router.get('/logout', (req,res) => {
+    req.session.destroy();
+    res.redirect('/login');
+})
+
 module.exports = router;
