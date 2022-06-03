@@ -73,16 +73,15 @@ width: 70%;
 
 
 }
-input:not(:placeholder-shown) {
-    background-image: none !important;
-  }
 
-input[type='text']::placeholder
-{   
-padding-left: 35px;}
-input[type='password']::placeholder
-{   
-    padding-left: 35px;
+
+input[type='text'] {   
+    padding-left: 42px;
+    padding-right: 10px;
+}
+input[type='password'] {   
+    padding-left: 42px;
+    padding-right: 10px;
 }
 #pass{
     background-image: url(../_images/logo/pass-icon.png);
