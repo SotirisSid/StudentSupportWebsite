@@ -26,6 +26,7 @@ app.set('view engine', 'html');   */
 
  
 app.use(session({
+  name: 'authentication',
   secret: 'keyboard cat',
   resave: false, // don't save session if unmodified
   saveUninitialized: false, // don't create session until something stored
@@ -73,6 +74,8 @@ app.use("/",signrouter);
 app.get("*",(req,res) => {
   res.render("error.ejs")
 }) 
+
+
 
 server.listen(3000,()=>{
    
