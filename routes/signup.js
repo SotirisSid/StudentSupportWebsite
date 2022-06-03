@@ -6,6 +6,7 @@ const router = express.Router();
 const sqlite3 = require("sqlite3").verbose();
 const bp = require('body-parser')
 var crypto = require('crypto');
+const { info } = require('console');
 //var db= require("../database/project_db.db");
 app.use(express.static('../public'));
 app.use(bp.json())
@@ -29,36 +30,32 @@ const db = new sqlite3.Database("database/project_db.db",sqlite3.OPEN_READWRITE,
     console.log("connection successful");
 
 });
-function displaymessage(){
-  return  { message: 'Incorrect username or password.' } 
-}
+
 
 
 //signing up post
 
 router.post('/sign_up',  function(req, res, next) {
-    db.get("SELECT * FROM USER WHERE username=?",[req.body.username], function(err, row) {
+    db.get("SELECT * FROM USER WHERE username=? ",[req.body.username], function(err, row) {
       if (err) { return cb(err); };
       if (!row) {
-  
-    
     console.log(req.body.username);
 
     var salt = crypto.randomBytes(16);
-    var fname="sotirios";
-    var lname="sidiropoulos";
+  
     crypto.pbkdf2(req.body.password, salt, 310000, 32, 'sha256', function(err, hashedPassword) {
       if (err) { return next(err); }
       console.log(hashedPassword);
       db.run('INSERT INTO USER (username,fName,lName, hashed_password, salt) VALUES (?, ?, ?, ?, ?)', [
         req.body.username,
-        fname,
-        lname,
+        req.body.fName,
+        req.body.Lname,
         hashedPassword,
         salt
       ], function(err) {
         if (err) { return next(err); }
       res.redirect('/');
+      
       
      
 
@@ -66,9 +63,7 @@ router.post('/sign_up',  function(req, res, next) {
   });
 }
 else{
- 
- res.redirect("/sign_up");
-message =  'Username or email already exist'
+  res.redirect('/sign_up?error=' + encodeURIComponent('Username_already_exists'));
  
 }
 });

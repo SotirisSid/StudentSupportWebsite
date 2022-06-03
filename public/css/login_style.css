@@ -59,6 +59,8 @@ width: 70%;
   margin-top: 20px;
 }
 
+#fName,
+#Lname,
 #user {
     background-image: url(../_images/logo/login-icon.png);
     background-repeat: no-repeat;
