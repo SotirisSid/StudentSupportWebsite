@@ -80,7 +80,10 @@ router.post("/login/pass",  passport.authenticate('local', {
     failureMessage: true
     
   }));  
-
+ 
+  router.get("*",(req,res) => {
+    res.render("error.ejs")
+})
 
      
 module.exports = router;
