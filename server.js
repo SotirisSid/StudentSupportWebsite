@@ -31,6 +31,10 @@ app.use(session({
   resave: false, // don't save session if unmodified
   saveUninitialized: false, // don't create session until something stored
  // store: new SQLiteStore({ db: 'sessions.db', dir: './var/db' })
+  cookie: {
+    maxAge: 1000 * 60 * 60, // 1 ώρα
+    sameSite: true,
+  }
 }));
 
 
