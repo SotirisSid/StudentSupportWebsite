@@ -66,8 +66,10 @@ app.use(passport.authenticate('session'));
 app.use("/",mainapprouter);
 app.use("/",indexRouter);
 app.use("/",signrouter);
- 
 
+app.get("*",(req,res) => {
+  res.render("error.ejs")
+}) 
 
 server.listen(3000,()=>{
    
