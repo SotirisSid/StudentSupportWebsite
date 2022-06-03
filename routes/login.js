@@ -68,10 +68,6 @@ router.get('/login',(req,res)=>{
     
  
  });
- router.get('/',(req,res)=>{
-     res.render("main-page.ejs");
-
-});
 
 router.post("/login/pass",  passport.authenticate('local', {
     successRedirect: '/',

@@ -36,7 +36,7 @@ app.use(session({
 
 var indexRouter = require('./routes/login');
 var signrouter= require('./routes/signup');
-
+var mainapprouter=require("./routes/index");
 app.locals.pluralize = require('pluralize');
 
 app.use(logger('dev'));
@@ -61,7 +61,7 @@ app.use(passport.authenticate('session'));
 
 
     
-
+app.use("/",mainapprouter);
 app.use("/",indexRouter);
 app.use("/",signrouter);
  
