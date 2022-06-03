@@ -11,59 +11,34 @@ const db = new sqlite3.Database("database/project_db.db",sqlite3.OPEN_READONLY,(
 }); 
 
 let getUserById = (id, cb) => {
-    const stmt = db.prepare("SELECT id, username, fName, lName FROM USER WHERE id = ? LIMIT 0, 1");
-    let user;
-    try {
-        user = stmt.all(id);
-    } catch (err) {
-        cb(err, null);
-    }
-
-    cb(null, user)
+    db.get('SELECT id, username, fName, lName FROM USER WHERE id = ?', id, function(err, row) {
+        if (!row) cb(null, false);
+        cb(null, row);
+    });
 }
+exports.getUserById = getUserById;
+
 
 let checkIfAdmin = (id, cb) => {
-    const stmt = db.prepare("SELECT id FROM ADMIN WHERE id = ? LIMIT 0, 1");
-    let user;
-    let verdict=false;
-    try {
-        user = stmt.all(id);
-        if(user[0]) {
-            verdict=true;
-        }
-    } catch (err) {
-        cb(err, null);
-    }
-    cb(null, verdict)
+    db.get('SELECT EXISTS (SELECT id FROM ADMIN WHERE id = ? LIMIT 0, 1) AS VERDICT', id, function(err, row) {
+        if (!row) cb(null, false);
+        cb(null, row);
+    })
 }
+exports.checkIfAdmin = checkIfAdmin;
 
-let checkIfProfessor = (id, cb) => {
-    const stmt = db.prepare("SELECT id FROM PROFESSOR WHERE id = ? LIMIT 0, 1");
-    let user;
-    let verdict=false;
-    try {
-        user = stmt.all(id);
-        if(user[0]) {
-            verdict=true;
-        }
-    } catch (err) {
-        cb(err, null);
-    }
-    cb(null, verdict)
+let checkIfProf = (id, cb) => {
+    db.get('SELECT EXISTS (SELECT id FROM PROFESSOR WHERE id = ? LIMIT 0, 1) AS VERDICT', id, function(err, row) {
+        if (!row) cb(null, false);
+        cb(null, row);
+    })
 }
+exports.checkIfProf = checkIfProf;
 
 let checkIfStudent = (id, cb) => {
-    const stmt = db.prepare("SELECT id FROM STUDENT WHERE id = ? LIMIT 0, 1");
-    let user;
-    let verdict=false;
-    try {
-        user = stmt.all(id);
-        if(user[0]) {
-            verdict=true;
-        }
-    } catch (err) {
-        cb(err, null);
-    }
-    cb(null, verdict)
+    db.get('SELECT EXISTS (SELECT id FROM STUDENT WHERE id = ? LIMIT 0, 1) AS VERDICT', id, function(err, row) {
+        if (!row) cb(null, false);
+        cb(null, row);
+    })
 }
-
+exports.checkIfStudent = checkIfStudent;
