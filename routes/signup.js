@@ -12,9 +12,14 @@ app.use(bp.json())
 app.use(bp.urlencoded({ extended: true }))
 app.set("view-engine","ejs");
 
+function checkNotAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect('/')
+  }
+  next()
+}
 
-
-router.get("/sign_up",(req,res)=>{
+router.get("/sign_up",checkNotAuthenticated,(req,res)=>{
    res.render("Sign_up.ejs");
 
 });

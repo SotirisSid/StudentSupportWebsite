@@ -24,7 +24,12 @@ const req = require('express/lib/request');
     
 
 }); 
- 
+function checkNotAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect('/')
+  }
+  next()
+}
 
 
 
@@ -62,7 +67,7 @@ passport.use(new LocalStrategy(function verify(username, password, cb) {
     
     });   */
 
-router.get('/login',(req,res)=>{
+router.get('/login',checkNotAuthenticated,(req,res)=>{
     //const message=req.flash("hello");
      res.render("login.ejs");//,{message});
     
