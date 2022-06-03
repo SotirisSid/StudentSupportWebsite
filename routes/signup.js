@@ -28,7 +28,7 @@ const db = new sqlite3.Database("database/project_db.db",sqlite3.OPEN_READWRITE,
 
 //signing up post
 
-router.post('/sign_up', async function(req, res, next) {
+router.post('/sign_up',  function(req, res, next) {
     db.get("SELECT * FROM USER WHERE username=?",[req.body.username], function(err, row) {
       if (err) { return cb(err); };
       if (!row) {
@@ -55,9 +55,10 @@ router.post('/sign_up', async function(req, res, next) {
     });
   });
 }
+else{
 
-  res.redirect("/sign_up")
-
+ res.redirect("/sign_up")
+}
 });
 
 });
