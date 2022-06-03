@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/login_style.css" />
+    
     <title>Document</title>
   </head>
   <body>
@@ -32,6 +33,15 @@
           <button class="login_button" method="POST">Σύνδεση</button>
           
           <p class="sign-up" >Dont have an account? <a href="/sign_up">Sign up.</a></p>
+          
+          
+          <% if (hasMessages) { %>
+            <section class="messages">
+              <% messages.forEach(function(message) { %>
+              <p><%= message %></p>
+              <% }); %>
+            </section>
+            <% } %>
         
            
           

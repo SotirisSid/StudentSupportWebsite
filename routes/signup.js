@@ -29,6 +29,9 @@ const db = new sqlite3.Database("database/project_db.db",sqlite3.OPEN_READWRITE,
     console.log("connection successful");
 
 });
+function displaymessage(){
+  return  { message: 'Incorrect username or password.' } 
+}
 
 
 //signing up post
@@ -56,13 +59,17 @@ router.post('/sign_up',  function(req, res, next) {
       ], function(err) {
         if (err) { return next(err); }
       res.redirect('/');
+      
+     
 
     });
   });
 }
 else{
-
- res.redirect("/sign_up")
+ 
+ res.redirect("/sign_up");
+message =  'Username or email already exist'
+ 
 }
 });
 

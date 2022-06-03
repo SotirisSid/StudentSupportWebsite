@@ -18,7 +18,12 @@ body{
     justify-content: center;
 }
 
-
+.messages{
+    text-align: center;
+    color: #ba3939;
+    background: #ffe0e0;
+    border: 1px solid #a33a3a;
+  }
 
 .form{
     display:inline-block;

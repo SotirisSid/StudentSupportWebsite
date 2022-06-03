@@ -34,6 +34,13 @@
 					<label for="check"><span class="icon"></span> Remember me</label>
         </div>
           <button class="login_button"  method="POST">Εγγραφή</button>
+          <% if (hasMessages) { %>
+            <section class="messages">
+              <% messages.forEach(function(message) { %>
+              <p><%= message %></p>
+              <% }); %>
+            </section>
+            <% } %>
         </form>
         </div>
 
