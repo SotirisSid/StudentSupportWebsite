@@ -356,3 +356,75 @@ body {
   text-align: center;
 
 }
+
+/* announcment creation css */
+
+.createanouncment{
+  background-color: white;
+  width: 80%;
+  text-align:center;
+  margin-left: 10%;
+  border-radius: 50px;
+  height: 80vh;
+  margin-bottom: 5vh;
+}
+
+.send_ann{
+ 
+  color: white;
+  background-color: #962F34;
+  border-radius: 50px;
+  width: 40%;
+  font-size: 20px;
+  height: 50px;
+  margin-top: 20px;
+
+
+}
+.create_title{
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 47px;
+  text-align: center;
+}
+.ann_subject{
+  margin-top: 5%;
+  width: 80%;
+  margin-left: 10%;
+}
+.ann_title{
+ margin-top: 2%;
+  width: 80%;
+  margin-left: 10%;
+}
+.ann_text{
+  resize: none;
+  margin-top: 2%;
+  width: 80%;
+  margin-left: 10%;
+ 
+
+}
+
+@media only screen and (max-width: 600px) {
+  .create_title{
+  font-size: 25px;
+
+  }
+  .student-name{ 
+    font-size: 20px;
+  }
+  .school-name{
+    font-size: 12px;
+    height: 1%;
+  }
+}
+
+@media (max-height: 750px) {
+  .createanouncment{
+    height: 100vh;
+  }
+
+}

@@ -150,3 +150,23 @@ h3{
     height: 100%;
    
 }
+
+/* media screen */
+@media (max-width: 700px) { 
+
+    .imges{
+        display: none;
+    }
+    input{
+        width: 100% !important;
+    }
+    .login_button {
+        width: 100%;
+    }
+}
+@media (max-height: 700px) { 
+    .imges{
+        height: 650px;
+
+    }
+}

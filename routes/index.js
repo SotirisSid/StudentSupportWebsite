@@ -39,4 +39,9 @@ router.get('/addAnnouncement', ensureLoggedIn, (req,res) =>{
     mainPageC.addAnnouncement(req,res);
 });
 
+router.get("/createannouncment",(req,res)=>{
+    res.render("proffessor_announcement.ejs");
+
+});
+
 module.exports = router;
