@@ -59,7 +59,6 @@ exports.checkIfStudent=checkIfStudent;
 
 
 function checkIdentity(req,res) {
-    const newAnnouncement = new Announcement(null, req.params.content, null, req.params.title, req.params.subject_id);
     model.getUserAnnouncements(req.session.passport.user, (err, announcements) => {
         if (err) {
             res.json(err);
