@@ -192,7 +192,7 @@ function getUserAnnouncements(req, res) {
                             if (err) {
                                 res.json(err);
                             }                   
-                            res.render("prof_announcements.ejs",{namevar:user.fName,lastnamevar: user.lName, ann:announcements});                
+                            res.render("admin_announcments.ejs",{namevar:user.fName,lastnamevar: user.lName, ann:announcements});                
                         });                  
                     }
                 }
