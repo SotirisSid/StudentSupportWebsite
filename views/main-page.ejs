@@ -121,10 +121,9 @@
 
     <div class="subjects">
       <h3 class="header4">Μαθήματα</h3>
-      <a class="subjecti" href="#">Προγραμματισμός Διαδικτύου</a> <br />
-      <a class="subjecti" href="#">Προγραμματισμός Διαδικτύου</a> <br />
-      <a class="subjecti" href="#">Προγραμματισμός Διαδικτύου</a> <br />
-      <a class="subjecti" href="#">Προγραμματισμός Διαδικτύου</a> <br />
+      <% for(let i=0; i < sub.length; i++ ) {%>
+        <a class="subjecti" href="#"><%=sub[i].title%></a> <br />
+      <% } %>
     </div>
     <div class="info-student">
       <h3 class="student-name"><%= namevar %> <%=lastnamevar %></h3>

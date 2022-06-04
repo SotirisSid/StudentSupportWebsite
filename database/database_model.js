@@ -114,3 +114,19 @@ let addAnnouncement = (newAnnouncement, userId, cb) => {
     cb(null, info.lastInsertRowId);
 };
 exports.addAnnouncement = addAnnouncement;
+
+let getUserSubjects = (userid, cb) => {
+    if (userid==0) {
+        db.all('SELECT * FROM SUBJECT', function(err, row) {
+            if (!row) cb(null, false);
+            cb(null, row);
+        })
+    }
+    else {
+        db.all('SELECT * FROM SUBJECT JOIN ATTENDS ON sub_id=ATTENDS.subject_id JOIN TEACHES ON sub_id=TEACHES.subject_id WHERE student_id= ? OR professor_id= ? GROUP by sub_id', userid, userid, function(err, row) {
+            if (!row) cb(null, false);
+            cb(null, row);
+        })
+    }
+}
+exports.getUserSubjects = getUserSubjects;
