@@ -32,7 +32,8 @@ function checkIfProf(req,res) {
             res.json(err);
         }
         else {
-            res.status(200).json({ isProfessor: user });
+            console.log(user.VERDICT);
+            return user.VERDICT;
         }
     })
 }
@@ -49,6 +50,40 @@ function checkIfStudent(req,res) {
     })
 }
 exports.checkIfStudent=checkIfStudent;
+
+function checkIdentity(req,res) {
+    model.checkIfAdmin(req.session.passport.user, (err, user) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            if (user.VERDICT == 1) {
+                res.render("proffesor_main_page.ejs");
+            }
+        }
+    });
+    model.checkIfProf(req.session.passport.user, (err, user) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            if (user.VERDICT == 1) {
+                res.render("proffesor_main_page.ejs");
+            }
+        }
+    });
+    model.checkIfStudent(req.session.passport.user, (err, user) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            if (user.VERDICT == 1) {
+                res.render("main-page.ejs");
+            }
+        }
+    })
+}
+exports.checkIdentity = checkIdentity;
 
 function getUserAnnouncements(req, res) {
     model.getUserAnnouncements(req.session.passport.user, (err, announcements) => {

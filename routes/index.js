@@ -7,7 +7,8 @@ var ensureLoggedIn = ensureLogIn();
 var router = express.Router();
 
 router.get('/', ensureLoggedIn,(req,res)=>{
-    res.render("main-page.ejs");
+    mainPageC.checkIdentity(req,res);
+    
 
 });
 
@@ -23,15 +24,7 @@ router.get('/logout', (req,res) => {
 router.get('/getUserDetails', ensureLoggedIn, (req,res) =>{
     mainPageC.getUserById(req,res);
 });
-router.get('/isAdmin', ensureLoggedIn, (req,res) =>{
-    mainPageC.checkIfAdmin(req,res);
-});
-router.get('/isProfessor', ensureLoggedIn, (req,res) =>{
-    mainPageC.checkIfProf(req,res);
-});
-router.get('/isStudent', ensureLoggedIn, (req,res) =>{
-    mainPageC.checkIfStudent(req,res);
-});
+
 router.get('/getAllAnnouncements', ensureLoggedIn, (req,res) =>{
     mainPageC.getUserAnnouncements(req,res);
 });
