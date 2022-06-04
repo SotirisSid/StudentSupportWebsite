@@ -32,6 +32,9 @@ router.get('/isProfessor', ensureLoggedIn, (req,res) =>{
 router.get('/isStudent', ensureLoggedIn, (req,res) =>{
     mainPageC.checkIfStudent(req,res);
 });
+router.get('/getAllAnnouncements', ensureLoggedIn, (req,res) =>{
+    mainPageC.getUserAnnouncements(req,res);
+});
 router.get('/addAnnouncement', ensureLoggedIn, (req,res) =>{
     mainPageC.addAnnouncement(req,res);
 });

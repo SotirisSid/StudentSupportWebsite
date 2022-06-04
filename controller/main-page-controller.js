@@ -50,7 +50,17 @@ function checkIfStudent(req,res) {
 }
 exports.checkIfStudent=checkIfStudent;
 
-
+function getUserAnnouncements(req, res) {
+    model.getUserAnnouncements(req.session.passport.user, (err, announcements) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            res.status(200).json({ Announcements: announcements });
+        }
+    })
+}
+exports.getUserAnnouncements = getUserAnnouncements;
 
 function addAnnouncement(req, res) {
     const newAnnouncement = new Announcement(null, req.params.content, null, req.params.title, req.params.subject_id);
