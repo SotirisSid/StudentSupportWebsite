@@ -4,7 +4,7 @@ PRAGMA encoding="UTF-8";
 BEGIN TRANSACTION;
 DROP TABLE IF EXISTS "USER";
 CREATE TABLE IF NOT EXISTS "USER" (
-    "id" integer NOT NULL,
+    "id" integer NOT NULL AUTOINCREMENT,
     "username" varchar(255) NOT NULL,
     "fName" varchar(255),
     "lName" varchar(255),
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS "SUBJECT" (
 
 DROP TABLE IF EXISTS "ANNOUNCEMENT";
 CREATE TABLE IF NOT EXISTS "ANNOUNCEMENT" (
-    "ann_id" integer NOT NULL,
+    "ann_id" integer NOT NULL AUTOINCREMENT,
     "content" text,
     "upload_date" date,
     "title" text,
