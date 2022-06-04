@@ -42,3 +42,11 @@ let checkIfStudent = (id, cb) => {
     })
 }
 exports.checkIfStudent = checkIfStudent;
+
+let getUserAnnouncements = (userid, cb) => {
+    db.get('SELECT * FROM ANNOUNCEMENT WHERE ann_id IN (SELECT announcement_id FROM SEES WHERE student_id= ?)', userid, function(err, row) {
+        if (!row) cb(null, false);
+        cb(null, row);
+    })
+}
+exports.getUserAnnouncements = getUserAnnouncements;
