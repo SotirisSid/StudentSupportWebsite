@@ -38,6 +38,9 @@ router.get('/getAllAnnouncements', ensureLoggedIn, (req,res) =>{
 router.get('/addAnnouncement', ensureLoggedIn, (req,res) =>{
     mainPageC.addAnnouncement(req,res);
 });
+router.get('/addAnnouncement/:content/:title/:subject_id', ensureLoggedIn, (req,res) =>{
+    mainPageC.addAnnouncement(req,res);
+});
 
 router.get("/createannouncment",(req,res)=>{
     res.render("proffessor_announcement.ejs");
