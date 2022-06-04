@@ -46,5 +46,9 @@ router.get("/createAnnouncement",(req,res)=>{
     res.render("proffessor_announcement.ejs");
 
 });
+router.get("/proffesor_main_page",(req,res)=>{
+res.render("proffesor_main_page.ejs");
+
+});
 
 module.exports = router;

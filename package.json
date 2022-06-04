@@ -29,6 +29,7 @@
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "pluralize": "^8.0.0",
-    "sqlite3": "^5.0.2"
+    "sqlite3": "^5.0.2",
+    "y": "^0.3.2"
   }
 }
