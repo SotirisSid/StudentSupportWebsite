@@ -42,7 +42,7 @@ router.get('/addAnnouncement/:content/:title/:subject_id', ensureLoggedIn, (req,
     mainPageC.addAnnouncement(req,res);
 });
 
-router.get("/createannouncment",(req,res)=>{
+router.get("/createAnnouncement",(req,res)=>{
     res.render("proffessor_announcement.ejs");
 
 });

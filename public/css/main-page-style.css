@@ -422,7 +422,7 @@ body {
   }
 }
 
-@media (max-height: 750px) {
+@media (max-height: 820px) {
   .createanouncment{
     height: 700px;
   }

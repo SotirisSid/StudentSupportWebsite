@@ -4,8 +4,9 @@ PRAGMA encoding="UTF-8";
 BEGIN TRANSACTION;
 DROP TABLE IF EXISTS "USER";
 CREATE TABLE IF NOT EXISTS "USER" (
-    "id" integer NOT NULL AUTOINCREMENT,
+    "id" integer NOT NULL,
     "username" varchar(255) NOT NULL,
+    "email" varchar(255),
     "fName" varchar(255),
     "lName" varchar(255),
     "hashed_password" BLOB,
@@ -45,7 +46,7 @@ CREATE TABLE IF NOT EXISTS "SUBJECT" (
 
 DROP TABLE IF EXISTS "ANNOUNCEMENT";
 CREATE TABLE IF NOT EXISTS "ANNOUNCEMENT" (
-    "ann_id" integer NOT NULL AUTOINCREMENT,
+    "ann_id" integer NOT NULL,
     "content" text,
     "upload_date" date,
     "title" text,
@@ -100,14 +101,14 @@ CREATE TABLE IF NOT EXISTS "EDITS_A" (
 
 -----------------------------------------------------------------------
 
-INSERT INTO "USER" ("id", "username", "fName", "lName", "hashed_password","salt") VALUES
-    (0, "thegreatestadmin", "Sinus", "Lebastian", "yJ3GHhWNxuBS2CV3",10), --ADMIN
-    (1, "prafar", "Pranav", "Farley", "mAKfWFCY8x2U2Gte",10), --PROF
-    (2, "anmac", "Anisha", "Macdonald", "YwfqsH7c9k4DXjCB",10), --STUD
-    (3, "elihaas", "Elisabeth", "Haas", "82ZGWDMSmmDmnLV3",10), --STUD
-    (4, "t.hurst", "Teresa", "Hurst", "jHBH8ZESXcXkKVF6",10), --PROF
-    (5, "eboni.l", "Eboni", "Lees", "9fsv82M8eSjFyFZU",10), -- STUD
-    (6, "ellaheb", "Ella-Grace", "Hebert", "d5eYLU68QfvRB2Sy",10); --STUD
+-- INSERT INTO "USER" ("id", "username", "fName", "lName", "hashed_password","salt") VALUES
+--     (0, "thegreatestadmin", "Sinus", "Lebastian", "yJ3GHhWNxuBS2CV3",10), --ADMIN
+--     (1, "prafar", "Pranav", "Farley", "mAKfWFCY8x2U2Gte",10), --PROF
+--     (2, "anmac", "Anisha", "Macdonald", "YwfqsH7c9k4DXjCB",10), --STUD
+--     (3, "elihaas", "Elisabeth", "Haas", "82ZGWDMSmmDmnLV3",10), --STUD
+--     (4, "t.hurst", "Teresa", "Hurst", "jHBH8ZESXcXkKVF6",10), --PROF
+--     (5, "eboni.l", "Eboni", "Lees", "9fsv82M8eSjFyFZU",10), -- STUD
+--     (6, "ellaheb", "Ella-Grace", "Hebert", "d5eYLU68QfvRB2Sy",10); --STUD
 
 INSERT INTO "ADMIN" ("id") VALUES
     (0);

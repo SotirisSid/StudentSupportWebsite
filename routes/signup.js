@@ -46,8 +46,9 @@ router.post('/sign_up',  function(req, res, next) {
     crypto.pbkdf2(req.body.password, salt, 310000, 32, 'sha256', function(err, hashedPassword) {
       if (err) { return next(err); }
       console.log(hashedPassword);
-      db.run('INSERT INTO USER (username,fName,lName, hashed_password, salt) VALUES (?, ?, ?, ?, ?)', [
+      db.run('INSERT INTO USER (username,email,fName,lName, hashed_password, salt) VALUES (?, ?, ?, ?, ?, ?)', [
         req.body.username,
+        req.body.email,
         req.body.fName,
         req.body.Lname,
         hashedPassword,
