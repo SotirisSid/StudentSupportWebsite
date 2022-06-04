@@ -53,15 +53,23 @@ let checkIfStudent = (id, cb) => {
 exports.checkIfStudent = checkIfStudent;
 
 let getUserAnnouncements = (userid, cb) => {
-    db.all('SELECT * FROM ANNOUNCEMENT WHERE ann_id IN (SELECT announcement_id FROM SEES WHERE student_id= ?) OR professor_id = ?', userid, userid, function(err, row) {
-        if (!row) cb(null, false);
-        cb(null, row);
-    })
+    if (userid==0) {
+        db.all('SELECT * FROM ANNOUNCEMENT ORDER BY upload_date DESC', function(err, row) {
+            if (!row) cb(null, false);
+            cb(null, row);
+        })
+    }
+    else {
+        db.all('SELECT * FROM ANNOUNCEMENT WHERE ann_id IN (SELECT announcement_id FROM SEES WHERE student_id= ?) OR professor_id = ? ORDER BY upload_date DESC', userid, userid, function(err, row) {
+            if (!row) cb(null, false);
+            cb(null, row);
+        })
+    }
 }
 exports.getUserAnnouncements = getUserAnnouncements;
 
 let getAnnouncement = (annid, userid, cb) => {
-    db.get('SELECT * FROM ANNOUNCEMENT WHERE ann_id = ? AND ann_id IN (SELECT announcement_id FROM SEES WHERE student_id= ? OR professor_id = ?)', annid, userid, userid, function(err, row) {
+    db.get('SELECT * FROM ANNOUNCEMENT WHERE ann_id = ? AND ann_id IN (SELECT announcement_id FROM SEES WHERE student_id= ? OR professor_id = ? ORDER BY upload_date DESC)', annid, userid, userid, function(err, row) {
         if (!row) cb(null, false);
         cb(null, row);
     })

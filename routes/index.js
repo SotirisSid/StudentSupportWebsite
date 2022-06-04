@@ -13,7 +13,7 @@ router.get('/', ensureLoggedIn,(req,res)=>{
 });
 
 router.get('/announcements', ensureLoggedIn, (req,res)=>{
-    mainPageC.checkIdentityAnn(req,res);
+    mainPageC.getUserAnnouncements(req,res);
 });
 
 router.get('/logout', (req,res) => {

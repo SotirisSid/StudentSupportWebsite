@@ -10,7 +10,7 @@ for (let i of items) {
 
 function announcementActivate(e) {
     const msgtextheader = this.querySelector(".mess-header");
-    const msgtext = document.querySelector(".mess-par");
+    const msgtext = this.querySelector(".mess-par");
     anntextheader.innerHTML=msgtextheader.innerHTML;
     anntext.innerHTML=msgtext.innerHTML;
 

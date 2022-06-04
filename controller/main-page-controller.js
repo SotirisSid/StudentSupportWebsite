@@ -59,104 +59,62 @@ exports.checkIfStudent=checkIfStudent;
 
 
 function checkIdentity(req,res) {
-    model.checkIfAdmin(req.session.passport.user, (err, user) => {
+    const newAnnouncement = new Announcement(null, req.params.content, null, req.params.title, req.params.subject_id);
+    model.getUserAnnouncements(req.session.passport.user, (err, announcements) => {
         if (err) {
             res.json(err);
         }
         else {
-            if (user.VERDICT == 1) {                
-                model.getUserById(req.session.passport.user,(err, user) => {
-                    if (err) {
-                        res.json(err);
-                    }                   
-                    res.render("proffesor_main_page.ejs",{namevar:user.fName,lastnamevar: user.lName});                
-                });                  
-            }
-        }
-    });
-    model.checkIfProf(req.session.passport.user, (err, user) => {
-        if (err) {
-            res.json(err);
-        }
-        else {
-            if (user.VERDICT == 1) {
-                model.getUserById(req.session.passport.user,(err, user) => {
-                    if (err) {
-                        res.json(err);
-                    }                   
-                    res.render("proffesor_main_page.ejs",{namevar:user.fName,lastnamevar: user.lName});            
-                });  
-            }
-        }
-    });
-    model.checkIfStudent(req.session.passport.user, (err, user) => {
-        if (err) {
-            res.json(err);
-        }
-        else {
-            if (user.VERDICT == 1) {
-                model.getUserById(req.session.passport.user,(err, user) => {
-                    if (err) {
-                        res.json(err);
+            model.checkIfAdmin(req.session.passport.user, (err, user) => {
+                if (err) {
+                    res.json(err);
+                }
+                else {
+                    if (user.VERDICT == 1) {                
+                        model.getUserById(req.session.passport.user,(err, user) => {
+                            if (err) {
+                                res.json(err);
+                            }                   
+                            res.render("proffesor_main_page.ejs",{namevar:user.fName,lastnamevar: user.lName, ann: announcements});                
+                        });                  
                     }
-                    res.render("main-page.ejs",{namevar:user.fName,lastnamevar: user.lName});
-                });  
-            }
+                }
+            });
+            model.checkIfProf(req.session.passport.user, (err, user) => {
+                if (err) {
+                    res.json(err);
+                }
+                else {
+                    if (user.VERDICT == 1) {
+                        model.getUserById(req.session.passport.user,(err, user) => {
+                            if (err) {
+                                res.json(err);
+                            }                   
+                            res.render("proffesor_main_page.ejs",{namevar:user.fName,lastnamevar: user.lName, ann: announcements});            
+                        });  
+                    }
+                }
+            });
+            model.checkIfStudent(req.session.passport.user, (err, user) => {
+                if (err) {
+                    res.json(err);
+                }
+                else {
+                    if (user.VERDICT == 1) {
+                        model.getUserById(req.session.passport.user,(err, user) => {
+                            if (err) {
+                                res.json(err);
+                            }
+                            res.render("main-page.ejs",{namevar:user.fName,lastnamevar: user.lName, ann: announcements});
+                        });  
+                    }
+                }
+            })
         }
-    })
+    });
 }
 exports.checkIdentity = checkIdentity;
 
-
-
-function checkIdentityAnn(req,res) {
-    model.checkIfAdmin(req.session.passport.user, (err, user) => {
-        if (err) {
-            res.json(err);
-        }
-        else {
-            if (user.VERDICT == 1) {                
-                model.getUserById(req.session.passport.user,(err, user) => {
-                    if (err) {
-                        res.json(err);
-                    }                   
-                    res.render("prof_announcements.ejs",{namevar:user.fName,lastnamevar: user.lName});
-                });                  
-            }
-        }
-    });
-    model.checkIfProf(req.session.passport.user, (err, user) => {
-        if (err) {
-            res.json(err);
-        }
-        else {
-            if (user.VERDICT == 1) {
-                model.getUserById(req.session.passport.user,(err, user) => {
-                    if (err) {
-                        res.json(err);
-                    }                   
-                    res.render("prof_announcements.ejs",{namevar:user.fName,lastnamevar: user.lName});            
-                });  
-            }
-        }
-    });
-    model.checkIfStudent(req.session.passport.user, (err, user) => {
-        if (err) {
-            res.json(err);
-        }
-        else {
-            if (user.VERDICT == 1) {
-                model.getUserById(req.session.passport.user,(err, user) => {
-                    if (err) {
-                        res.json(err);
-                    }
-                    res.render("announcements.ejs",{namevar:user.fName,lastnamevar: user.lName});
-                });  
-            }
-        }
-    })
-}
-exports.checkIdentityAnn = checkIdentityAnn;
 
 
 function checkIdentityNewAnn(req,res) {
@@ -216,7 +174,51 @@ function getUserAnnouncements(req, res) {
             res.json(err);
         }
         else {
-            res.status(200).json({ Announcements: announcements });
+            model.checkIfAdmin(req.session.passport.user, (err, user) => {
+                if (err) {
+                    res.json(err);
+                }
+                else {
+                    if (user.VERDICT == 1) {                
+                        model.getUserById(req.session.passport.user,(err, user) => {
+                            if (err) {
+                                res.json(err);
+                            }                   
+                            res.render("prof_announcements.ejs",{namevar:user.fName,lastnamevar: user.lName, ann:announcements});                
+                        });                  
+                    }
+                }
+            });
+            model.checkIfProf(req.session.passport.user, (err, user) => {
+                if (err) {
+                    res.json(err);
+                }
+                else {
+                    if (user.VERDICT == 1) {
+                        model.getUserById(req.session.passport.user,(err, user) => {
+                            if (err) {
+                                res.json(err);
+                            }                   
+                            res.render("prof_announcements.ejs",{namevar:user.fName,lastnamevar: user.lName, ann:announcements});            
+                        });  
+                    }
+                }
+            });
+            model.checkIfStudent(req.session.passport.user, (err, user) => {
+                if (err) {
+                    res.json(err);
+                }
+                else {
+                    if (user.VERDICT == 1) {
+                        model.getUserById(req.session.passport.user,(err, user) => {
+                            if (err) {
+                                res.json(err);
+                            }
+                            res.render("announcements.ejs",{namevar:user.fName,lastnamevar: user.lName, ann:announcements});
+                        });  
+                    }
+                }
+            })
         }
     })
 }
