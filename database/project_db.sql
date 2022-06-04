@@ -128,6 +128,7 @@ INSERT INTO "SUBJECT" ("sub_id", "year", "title") VALUES
     (802, 2021, "web");
 
 
+
 INSERT INTO "ANNOUNCEMENT" ("ann_id", "content", "upload_date", "title", "subject_id", "professor_id") VALUES
     (1000, "Την ερχόμενη εβδομάδα θα πραγματοποιηθούν οι τελικές παρουσιάσεις των ομαδικών εργασιών. Η προσθεσμία κατάθεσης της ομαδικής σας εργασίας είναι η Κυριακή 16/01/2022.
 
