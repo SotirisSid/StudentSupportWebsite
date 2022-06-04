@@ -38,5 +38,8 @@ router.get('/getAllAnnouncements', ensureLoggedIn, (req,res) =>{
 router.get('/addAnnouncement', ensureLoggedIn, (req,res) =>{
     mainPageC.addAnnouncement(req,res);
 });
+router.get('/addAnnouncement/:content/:title/:subject_id', ensureLoggedIn, (req,res) =>{
+    mainPageC.addAnnouncement(req,res);
+});
 
 module.exports = router;
