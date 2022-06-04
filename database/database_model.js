@@ -28,6 +28,15 @@ let getUserById = (id, cb) => {
 exports.getUserById = getUserById;
 
 
+let getSubjectId = (sub_name, cb) => {
+    db.get('SELECT * FROM SUBJECT WHERE title = ?', sub_name, function(err, row) {
+        if (!row) cb(null, false);
+        cb(null, row);
+    });
+}
+exports.getSubjectId = getSubjectId;
+
+
 let checkIfAdmin = (id, cb) => {
     db.get('SELECT EXISTS (SELECT id FROM ADMIN WHERE id = ? LIMIT 0, 1) AS VERDICT', id, function(err, row) {
         if (!row) cb(null, false);

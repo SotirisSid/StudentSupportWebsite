@@ -40,31 +40,39 @@
     <div class="createanouncment">
       <ul id="messages"></ul>
       <div class="form-outline">
-      <div class="form-group">
-        <form action="/submit_announcement">
-          <h1 class="create_title">Announcement creation</h1>
-          <select id="inputState" class="form-control ann_subject">
-            <option selected>Επιλογή Μαθήματος</option>
-            <option>database</option>
-            <option>web</option>
+        <div class="form-group">
+          <form action="/submit_announcement" method="post">
+            <h1 class="create_title">Announcement creation</h1>
+            <select
+              name="subject"
+              id="inputState"
+              class="form-control ann_subject"
+            >
+              <option selected>Επιλογή Μαθήματος</option>
+              <option>database</option>
+              <option>web</option>
+            </select>
 
-    
-          <input
-            type="text"
-            class="form-control ann_title"
-            id="ann_title"
-            placeholder="Write your title here..."
-          />
-          <textarea
-            placeholder="Write your text here"
-            class="form-control ann_text"
-            id="ann_text"
-            rows="14"
-          ></textarea>
-          <button class="send_ann" type="submit">Send Message</button>
-        </form>
+            <input
+              name="title"
+              type="text"
+              class="form-control ann_title"
+              id="ann_title"
+              placeholder="Write your title here..."
+              required
+            />
+            <textarea
+              name="text"
+              placeholder="Write your text here"
+              class="form-control ann_text"
+              id="ann_text"
+              rows="14"
+              required
+            ></textarea>
+            <button class="send_ann" type="submit">Send Message</button>
+          </form>
+        </div>
       </div>
-    </div>
     </div>
     <div class="info-student">
       <h3 class="student-name"><%= namevar %> <%=lastnamevar %></h3>

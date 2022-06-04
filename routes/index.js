@@ -3,6 +3,7 @@ var express = require('express');
 let mainPageC = require('../controller/main-page-controller.js');
 var ensureLoggedIn = ensureLogIn();
 
+let model = require('../database/database_model.js');
 
 var router = express.Router();
 
@@ -39,5 +40,26 @@ router.get("/createAnnouncement", ensureLoggedIn, (req,res)=>{
     mainPageC.checkIdentityNewAnn(req,res);
 
 });
+
+router.post("/submit_announcement",(req,res)=>{
+
+console.log(req.session.passport.user);
+
+model.getSubjectId(req.body.subject, (err, sub) => {
+    if (err) {
+        res.json(err);
+    }
+    const cur_announcment={content:req.body.text,title:req.body.title,subject_id:sub.sub_id};
+    console.log(cur_announcment);
+    model.addAnnouncement(cur_announcment,req.session.passport.user,(err, sub) => {
+        if (err) {
+            res.json(err);
+        }
+    });
+});
+res.redirect("/createAnnouncement");
+
+});
+
 
 module.exports = router;
