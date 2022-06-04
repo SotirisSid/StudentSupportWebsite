@@ -13,7 +13,7 @@ router.get('/', ensureLoggedIn,(req,res)=>{
 });
 
 router.get('/announcements', ensureLoggedIn, (req,res)=>{
-    res.render("announcements.ejs");
+    mainPageC.checkIdentityAnn(req,res);
 });
 
 router.get('/logout', (req,res) => {
@@ -35,12 +35,8 @@ router.get('/addAnnouncement/:content/:title/:subject_id', ensureLoggedIn, (req,
     mainPageC.addAnnouncement(req,res);
 });
 
-router.get("/createAnnouncement",(req,res)=>{
-    res.render("proffessor_announcement.ejs");
-
-});
-router.get("/proffesor_main_page",(req,res)=>{
-res.render("proffesor_main_page.ejs");
+router.get("/createAnnouncement", ensureLoggedIn, (req,res)=>{
+    mainPageC.checkIdentityNewAnn(req,res);
 
 });
 

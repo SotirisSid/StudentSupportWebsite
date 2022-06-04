@@ -31,7 +31,9 @@
         </a>
         <a href="" class="navbar-brand navitem">Μαθήματα</a>
         <a href="/announcements" class="navbar-brand navitem">Ανακοινώσεις</a>
-        <a href="#" class="navbar-brand navitem">Εργασίες</a>
+        <a href="/createAnnouncement" class="navbar-brand navitem"
+          >Νέα ανακοίνωση</a
+        >
         <a href="/logout" class="navbar-brand navitem">Αποσύνδεση</a>
       </nav>
     </div>
@@ -39,7 +41,7 @@
       <ul id="messages"></ul>
       <div class="form-outline">
       <div class="form-group">
-        <form action="">
+        <form action="/submit_announcement">
           <h1 class="create_title">Announcement creation</h1>
           <select id="inputState" class="form-control ann_subject">
             <option selected>Επιλογή Μαθήματος</option>
@@ -65,9 +67,9 @@
     </div>
     </div>
     <div class="info-student">
-      <h3 class="student-name">Ονοματεπώνυμο</h3>
+      <h3 class="student-name"><%= namevar %> <%=lastnamevar %></h3>
       <h4 class="school-name">
-        ΚΑΤΗΓΟΡΙΑ ΣΧΟΛΗΣ: ΟΝΟΜΑ ΣΧΟΛΗΣ ΚΑΙ ΚΑΤΕΥΘΥΝΣΗΣ
+        ΤΜΗΜΑ: HΛΕΚΤΡΟΛΟΓΩΝ ΜΗΧΑΝΙΚΩΝ ΚΑΙ ΤΕΧΝΟΛΟΓΙΑΣ ΥΠΟΛΟΓΙΣΤΩΝ
       </h4>
     </div>
 
