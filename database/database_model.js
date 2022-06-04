@@ -44,7 +44,7 @@ let checkIfStudent = (id, cb) => {
 exports.checkIfStudent = checkIfStudent;
 
 let getUserAnnouncements = (userid, cb) => {
-    db.all('SELECT * FROM ANNOUNCEMENT WHERE ann_id IN (SELECT announcement_id FROM SEES WHERE student_id= ?)', userid, function(err, row) {
+    db.all('SELECT * FROM ANNOUNCEMENT WHERE ann_id IN (SELECT announcement_id FROM SEES WHERE student_id= ?) OR professor_id = ?', userid, userid, function(err, row) {
         if (!row) cb(null, false);
         cb(null, row);
     })
@@ -52,7 +52,7 @@ let getUserAnnouncements = (userid, cb) => {
 exports.getUserAnnouncements = getUserAnnouncements;
 
 let getAnnouncement = (annid, userid, cb) => {
-    db.get('SELECT * FROM ANNOUNCEMENT WHERE ann_id = ? AND ann_id IN (SELECT announcement_id FROM SEES WHERE student_id= ?)', annid, userid, function(err, row) {
+    db.get('SELECT * FROM ANNOUNCEMENT WHERE ann_id = ? AND ann_id IN (SELECT announcement_id FROM SEES WHERE student_id= ? OR professor_id = ?)', annid, userid, userid, function(err, row) {
         if (!row) cb(null, false);
         cb(null, row);
     })
