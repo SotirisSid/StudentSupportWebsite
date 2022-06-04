@@ -10,6 +10,15 @@ const db = new sqlite3.Database("database/project_db.db",sqlite3.OPEN_READWRITE,
 
 }); 
 
+let getfname = (id, cb) => {
+    db.get('SELECT fName FROM USER WHERE id = ?', id, function(err, row) {
+        if (!row) cb(null, false);
+        cb(null, row);
+    });
+}
+exports.getfname = getfname;
+
+
 let getUserById = (id, cb) => {
     db.get('SELECT id, username, fName, lName FROM USER WHERE id = ?', id, function(err, row) {
         if (!row) cb(null, false);

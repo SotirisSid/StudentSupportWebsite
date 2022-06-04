@@ -12,7 +12,7 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="../css/main-page-style.css" />
-    
+
     <title>Main page</title>
   </head>
   <body>
@@ -87,15 +87,25 @@
           <div class="calendar">
             <div class="container" id="main">
               <div class="jumbotron">
-                <h1 class="text-center"><a id="left" href="#"><i class="fa fa-chevron-left"> </i></a><span>&nbsp;</span><span id="month"> </span><span>&nbsp;</span><span id="year"> </span><span>&nbsp;</span><a id="right" href="#"><i class="fa fa-chevron-right"> </i></a></h1>
+                <h1 class="text-center">
+                  <a id="left" href="#"><i class="fa fa-chevron-left"> </i></a
+                  ><span>&nbsp;</span><span id="month"> </span
+                  ><span>&nbsp;</span><span id="year"> </span><span>&nbsp;</span
+                  ><a id="right" href="#"
+                    ><i class="fa fa-chevron-right"> </i
+                  ></a>
+                </h1>
               </div>
               <div class="row">
                 <div class="col-offset">
                   <table class="table"></table>
                 </div>
               </div>
-            </div><span id="about"><a href="http://odran037.github.io" target="_blank"><i class="fa fa-question-circle"> </i></a></span>
-
+            </div>
+            <span id="about"
+              ><a href="http://odran037.github.io" target="_blank"
+                ><i class="fa fa-question-circle"> </i></a
+            ></span>
           </div>
         </div>
 
@@ -129,9 +139,9 @@
       <a class="subjecti" href="#">Προγραμματισμός Διαδικτύου</a> <br />
     </div>
     <div class="info-student">
-      <h3 class="student-name">Ονοματεπώνυμο</h3>
+      <h3 class="student-name"><%= namevar %> <%=lastnamevar %></h3>
       <h4 class="school-name">
-        ΚΑΤΗΓΟΡΙΑ ΣΧΟΛΗΣ: ΟΝΟΜΑ ΣΧΟΛΗΣ ΚΑΙ ΚΑΤΕΥΘΥΝΣΗΣ
+        ΤΜΗΜΑ: HΛΕΚΤΡΟΛΟΓΩΝ ΜΗΧΑΝΙΚΩΝ ΚΑΙ ΤΕΧΝΟΛΟΓΙΑΣ ΥΠΟΛΟΓΙΣΤΩΝ
       </h4>
     </div>
 
@@ -142,8 +152,8 @@
     ></script>
 
     <script src="../scripts/toggle-menu.js"></script>
-    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js'></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.1/moment.min.js"></script>
     <script src="../scripts/callendar-script.js"></script>
   </body>
 </html>

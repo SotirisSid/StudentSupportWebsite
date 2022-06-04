@@ -2,6 +2,10 @@ const User = require('../database/user.js');
 const Announcement = require('../database/announcement.js');
 let model = require('../database/database_model.js');
 
+
+
+
+
 function getUserById(req,res) {
     model.getUserById(req.session.passport.user, (err, user) => {
         if (err) {
@@ -58,7 +62,17 @@ function checkIdentity(req,res) {
         }
         else {
             if (user.VERDICT == 1) {
-                res.render("proffesor_main_page.ejs");
+                
+                model.getUserById(req.session.passport.user,(err, user) => {
+                    if (err) {
+                        res.json(err);
+                    }
+                   
+                    res.render("proffesor_main_page.ejs",{namevar:user.fName,lastnamevar: user.lName});
+                
+                }
+                );  
+                
             }
         }
     });
@@ -68,7 +82,15 @@ function checkIdentity(req,res) {
         }
         else {
             if (user.VERDICT == 1) {
-                res.render("proffesor_main_page.ejs");
+                model.getUserById(req.session.passport.user,(err, user) => {
+                    if (err) {
+                        res.json(err);
+                    }
+                   
+                    res.render("proffesor_main_page.ejs",{namevar:user.fName,lastnamevar: user.lName});
+                
+                }
+                );  
             }
         }
     });
@@ -78,7 +100,15 @@ function checkIdentity(req,res) {
         }
         else {
             if (user.VERDICT == 1) {
-                res.render("main-page.ejs");
+                model.getUserById(req.session.passport.user,(err, user) => {
+                    if (err) {
+                        res.json(err);
+                    }
+                   
+                    res.render("main-page.ejs",{namevar:user.fName,lastnamevar: user.lName});
+                
+                }
+                );  
             }
         }
     })
