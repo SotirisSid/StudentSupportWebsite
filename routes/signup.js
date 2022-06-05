@@ -64,18 +64,39 @@ router.post('/sign_up',  function(req, res, next) {
       ], function(err) {
         if (err) { return next(err); }
         console.log(this.lastID);
-      db.run("INSERT INTO STUDENT(id) VALUES(?)",[this.lastID], function(err) {
-        if (err) { return next(err); }});
-      for(let count=0;count<req.body.subject.length;count++){
-      db.run("INSERT INTO ATTENDS (student_id,subject_id) VALUES (?, ?)",[
-        this.lastID,
-        req.body.subject[count]
-      ], function(err) {
-        if (err) { return next(err); }
-      
-      
-    });
-  }
+        let newuserid = this.lastID;
+        db.run("INSERT INTO STUDENT(id) VALUES(?)",[newuserid], function(err) {
+          if (err) { return next(err); }});
+        for(let count=0;count<req.body.subject.length;count++){
+          db.run("INSERT INTO ATTENDS (student_id,subject_id) VALUES (?, ?)",[
+            newuserid,
+            req.body.subject[count]
+          ], function(err) {
+            if (err) { return next(err); }
+        
+        
+          });
+
+
+          db.all('SELECT * FROM ANNOUNCEMENT WHERE subject_id=?', req.body.subject[count], function(err, row) {
+            if (err) { return cb(err); };
+            
+            for (let j=0; j<row.length; j++) {
+              db.run("INSERT INTO SEES (student_id,announcement_id) VALUES (?, ?)",[
+                newuserid,
+                row[j].ann_id
+              ], function(err) {
+                if (err) { return next(err); }
+            
+            
+              });
+            }
+
+        })
+        }
+
+
+
   res.redirect('/');
      
 
