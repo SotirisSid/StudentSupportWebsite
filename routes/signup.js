@@ -12,6 +12,7 @@ app.use(express.static('../public'));
 app.use(bp.json())
 app.use(bp.urlencoded({ extended: true }))
 app.set("view-engine","ejs");
+let model = require('../database/database_model.js');
 
 function checkNotAuthenticated(req, res, next) {
   if (req.isAuthenticated()) {
@@ -21,7 +22,13 @@ function checkNotAuthenticated(req, res, next) {
 }
 
 router.get("/sign_up",checkNotAuthenticated,(req,res)=>{
-   res.render("Sign_up.ejs");
+  model.getsubname((err,row)=>{
+    if(err){ res.json(err); }
+    else{
+      res.render("Sign_up.ejs",{subject:row});
+
+    }
+  })
 
 });
 
@@ -46,7 +53,8 @@ router.post('/sign_up',  function(req, res, next) {
     crypto.pbkdf2(req.body.password, salt, 310000, 32, 'sha256', function(err, hashedPassword) {
       if (err) { return next(err); }
       console.log(hashedPassword);
-      db.run('INSERT INTO USER (username,email,fName,lName, hashed_password, salt) VALUES (?, ?, ?, ?, ?, ?)', [
+      let info;
+      info=db.run('INSERT INTO USER (username,email,fName,lName, hashed_password, salt) VALUES (?, ?, ?, ?, ?, ?)', [
         req.body.username,
         req.body.email,
         req.body.fName,
@@ -55,9 +63,20 @@ router.post('/sign_up',  function(req, res, next) {
         salt
       ], function(err) {
         if (err) { return next(err); }
-      res.redirect('/');
+        console.log(this.lastID);
+      db.run("INSERT INTO STUDENT(id) VALUES(?)",[this.lastID], function(err) {
+        if (err) { return next(err); }});
+      for(let count=0;count<req.body.subject.length;count++){
+      db.run("INSERT INTO ATTENDS (student_id,subject_id) VALUES (?, ?)",[
+        this.lastID,
+        req.body.subject[count]
+      ], function(err) {
+        if (err) { return next(err); }
       
       
+    });
+  }
+  res.redirect('/');
      
 
     });

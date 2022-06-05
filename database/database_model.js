@@ -10,6 +10,17 @@ const db = new sqlite3.Database("database/project_db.db",sqlite3.OPEN_READWRITE,
 
 }); 
 
+let getsubname = (cb) => {
+    db.all('SELECT * FROM SUBJECT', function(err, row) {
+        if (!row) cb(null, false);
+        cb(null, row);
+    });
+}
+exports.getsubname = getsubname;
+
+
+
+
 let getfname = (id, cb) => {
     db.get('SELECT fName FROM USER WHERE id = ?', id, function(err, row) {
         if (!row) cb(null, false);

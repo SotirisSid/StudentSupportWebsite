@@ -28,14 +28,21 @@
           </h1>
           <h3 class="credentials">Email*</h3>
           <input  id="email" class="input_forms" type="text" placeholder="Email" name="email" required/><br>
-          <h3 class="credentials">Firstname*</h3>
-          <input id="fName" class="input_forms" type="text" placeholder="Firstname" name="fName" required />
-          <h3 class="credentials">Lastname*</h3>
-          <input id="Lname" class="input_forms" type="text" placeholder="Lastname" name="Lname" required/>
+          <h3 class="credentials">First name*</h3>
+          <input id="fName" class="input_forms" type="text" placeholder="First name" name="fName" required />
+          <h3 class="credentials">Last name*</h3>
+          <input id="Lname" class="input_forms" type="text" placeholder="Last name" name="Lname" required/>
           <h3 class="credentials">Username*</h3>
           <input id="user" class="input_forms" type="text" placeholder="Username" name="username" required/>
           <h3 class="credentials">Password*</h3>
           <input  id="pass" class="input_forms" type="password" placeholder="Password" name="password" required/><br>
+          <% for(let i=0; i < subject.length; i++ ) {%>
+          <input type="checkbox" id="<%=subject[i].sub_id%>" name="subject[<%=i%>]"  value="<%=subject[i].sub_id%>">
+            <label for="<%=subject[i].title%>"> <%=subject[i].title%></label>
+            <br>
+
+            <% } %>
+         
           
           <div class="last-line"> 
           

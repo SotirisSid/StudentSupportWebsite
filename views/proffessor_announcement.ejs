@@ -44,11 +44,12 @@
           <form action="/submit_announcement" method="post">
             <h1 class="create_title">Δημιουργία ανακοίνωσης</h1>
             <select
+              required
               name="subject"
               id="inputState"
               class="form-control ann_subject"
             >
-              <option selected>Επιλογή Μαθήματος</option>
+              <option disabled="true" selected>Επιλογή Μαθήματος</option>
               <option>database</option>
               <option>web</option>
             </select>
