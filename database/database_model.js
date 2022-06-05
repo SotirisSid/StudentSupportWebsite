@@ -130,3 +130,12 @@ let getUserSubjects = (userid, cb) => {
     }
 }
 exports.getUserSubjects = getUserSubjects;
+
+
+let delete_ann = (id, cb) => {
+    db.run('DELETE FROM ANNOUNCEMENT WHERE ann_id=?', id, function(err, row) {
+        if (!row) cb(null, false);
+        cb(null, true);
+    });
+}
+exports.delete_ann = delete_ann;

@@ -252,3 +252,22 @@ function addAnnouncement(req, res) {
     });
 }
 exports.addAnnouncement = addAnnouncement;
+
+function deleteAnnouncement(req, res) {
+    model.checkIfAdmin(req.session.passport.user, (err, user) => {
+        if (err) {
+            res.json(err);
+        }
+        else {
+            if (user.VERDICT == 1) {                
+                model.delete_ann(req.params.ann_id, (err, removeResult) => {
+                    if (err) {
+                        res.json(err);
+                    }
+            
+                });
+            }
+        }
+    })
+}
+exports.deleteAnnouncement = deleteAnnouncement;

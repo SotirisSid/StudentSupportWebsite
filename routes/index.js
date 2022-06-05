@@ -41,7 +41,7 @@ router.get("/createAnnouncement", ensureLoggedIn, (req,res)=>{
 
 });
 
-router.post("/submit_announcement",(req,res)=>{
+router.post("/submit_announcement",ensureLoggedIn,(req,res)=>{
 
 console.log(req.session.passport.user);
 
@@ -60,6 +60,13 @@ model.getSubjectId(req.body.subject, (err, sub) => {
 res.redirect("/createAnnouncement");
 
 });
+
+
+router.post("/delete_announcment/:ann_id",ensureLoggedIn,(req,res)=>{
+console.log(req.params.ann_id);
+mainPageC.deleteAnnouncement(req,res);
+ res.redirect("/announcements");
+})
 
 
 module.exports = router;
