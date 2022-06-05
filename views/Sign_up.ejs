@@ -36,11 +36,13 @@
           <input id="user" class="input_forms" type="text" placeholder="Username" name="username" required/>
           <h3 class="credentials">Password*</h3>
           <input  id="pass" class="input_forms" type="password" placeholder="Password" name="password" required/><br>
-          <% for(let i=0; i < subject.length; i++ ) {%>
-          <input type="checkbox" id="<%=subject[i].sub_id%>" name="subject[<%=i%>]"  value="<%=subject[i].sub_id%>">
-            <label for="<%=subject[i].title%>"> <%=subject[i].title%></label>
-            <br>
 
+          <% for(let i=0; i < subject.length; i++ ) {%>
+            <div class="check">
+          <input class="checklist" type="checkbox" id="<%=subject[i].sub_id%>" name="subject[<%=i%>]"  value="<%=subject[i].sub_id%>">
+            <label class="checklabel" for="<%=subject[i].title%>"> <%=subject[i].title%></label>
+            <br>
+          </div>
             <% } %>
          
           
