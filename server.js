@@ -77,9 +77,9 @@ app.get("*",(req,res) => {
 
 
 
-server.listen(3002,()=>{
+server.listen(3000,()=>{
    
-    console.log("listening on 3002");
+    console.log("listening on 3000");
 
 })
 
